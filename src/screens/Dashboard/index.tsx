@@ -12,7 +12,8 @@ import {
   UserWrapper,
   UserGretting,
   UserName,
-  Icon
+  Icon,
+  HighlightCards,
 } from "./styles";
 
 export function Dashboard() {
@@ -33,10 +34,15 @@ export function Dashboard() {
           </UserInfo>
           <Icon name="power" />
         </UserWrapper>
-
       </Header>
-      
-      <HighlightCard />
+
+      <HighlightCards
+   
+      >
+        <HighlightCard />
+        <HighlightCard />
+        <HighlightCard />
+      </HighlightCards>
     </Container>
   );
 }
