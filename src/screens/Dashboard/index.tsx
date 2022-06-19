@@ -37,9 +37,24 @@ export function Dashboard() {
       </Header>
 
       <HighlightCards>
-        <HighlightCard />
-        <HighlightCard />
-        <HighlightCard />
+        <HighlightCard 
+          type="up"
+          title="Total de Receitas"
+          amount="R$ 1.000,00"
+          lastTransaction="Há 1 hora"
+        />
+        <HighlightCard
+          type="down"
+          title="Total de Despesas"
+          amount="R$ 1.000,00"
+          lastTransaction="Há 1 hora"
+        />
+        <HighlightCard
+          type="total"
+          title="Saldo"
+          amount="R$ 1.000,00"
+          lastTransaction="Há 1 hora"
+        />
       </HighlightCards>
     </Container>
   );
