@@ -1,23 +1,39 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { FC } from "react";
+import { Text, View } from "react-native";
 
-import { Container, Header, UserInfo, Photo, User, UserWrapper, UserGretting, UserName } from './styles';
+import {
+  Container,
+  Header,
+  UserInfo,
+  Photo,
+  User,
+  UserWrapper,
+  UserGretting,
+  UserName,
+  Icon
+} from "./styles";
 
-export function Dashboard() {
+export const Dashboard: FC = () => {
   return (
     <Container>
       <Header>
         <UserWrapper>
           <UserInfo>
-            <Photo source={{ uri: 'https://avatars.githubusercontent.com/u/31482507?v=4' }} />
+            <Photo
+              source={{
+                uri: "https://avatars.githubusercontent.com/u/31482507?v=4",
+              }}
+            />
             <User>
               <UserGretting>Olá</UserGretting>
               <UserName>Carlos</UserName>
             </User>
           </UserInfo>
+          <Icon name="power" />
         </UserWrapper>
+
       </Header>
-      {/* <Text>pk</Text> */}
+      <Text>pk</Text>
     </Container>
   );
 }
