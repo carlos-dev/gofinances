@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { Text, View } from "react-native";
 
 import { HighlightCard } from "../../components/HighlightCard";
+import { TransactionCard } from "../../components/TransactionCard";
 
 import {
   Container,
@@ -14,6 +15,8 @@ import {
   UserName,
   Icon,
   HighlightCards,
+  Transactions,
+  Title
 } from "./styles";
 
 export function Dashboard() {
@@ -56,6 +59,12 @@ export function Dashboard() {
           lastTransaction="Há 1 hora"
         />
       </HighlightCards>
+      
+      <Transactions>
+        <Title>Transações</Title>
+
+        <TransactionCard />
+      </Transactions>
     </Container>
   );
 }
