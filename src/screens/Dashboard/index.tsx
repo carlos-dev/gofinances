@@ -1,6 +1,8 @@
 import React, { FC } from "react";
 import { Text, View } from "react-native";
 
+import { HighlightCard } from "../../components/HighlightCard";
+
 import {
   Container,
   Header,
@@ -13,7 +15,7 @@ import {
   Icon
 } from "./styles";
 
-export const Dashboard: FC = () => {
+export function Dashboard() {
   return (
     <Container>
       <Header>
@@ -33,7 +35,8 @@ export const Dashboard: FC = () => {
         </UserWrapper>
 
       </Header>
-      <Text>pk</Text>
+      
+      <HighlightCard />
     </Container>
   );
 }
