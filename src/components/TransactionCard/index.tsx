@@ -1,22 +1,47 @@
-import React from 'react';
-import { View } from 'react-native';
+import React from "react";
+import { createGlobalStyle } from "styled-components";
 
-import { Container, Title, Amount, Footer, Category, Icon, CategoryName, Date } from './styles';
+import {
+  Container,
+  Title,
+  Amount,
+  Footer,
+  Category,
+  Icon,
+  CategoryName,
+  Date,
+} from "./styles";
 
-export function TransactionCard() {
+interface CategoryProps {
+  name: string;
+  icon: string;
+}
+
+export interface TransactionCardProps {
+  type: 'positive' | 'negative';
+  title: string;
+  amount: string;
+  category: CategoryProps;
+  date: string;
+}
+
+export function TransactionCard({ title, amount, category, date, type }: TransactionCardProps) {
   return (
     <Container>
-      <Title>Dev app</Title>
+      <Title>{title}</Title>
 
-      <Amount>R$ 1000.00</Amount>
+      <Amount type={type}>
+        { type === 'negative' && '- ' }
+        {amount}
+      </Amount>
 
       <Footer>
         <Category>
-          <Icon name="dollar-sign" />
-          <CategoryName>vendas</CategoryName>
+          <Icon name={category.icon} />
+          <CategoryName>{category.name}</CategoryName>
         </Category>
 
-        <Date>12/12/2020</Date>
+        <Date>{date}</Date>
       </Footer>
     </Container>
   );
