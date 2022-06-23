@@ -107,10 +107,7 @@ export function Dashboard() {
 
         <TransacionList
           data={data}
-          keyExtractor={(item) => String(item.id)}
-          contentContainerStyle={{
-            paddingBottom: getBottomSpace()
-          }}
+          keyExtractor={(item: DataListProps) => item.id}
           renderItem={({ item }) => (
             <TransactionCard
               title={item.title}
