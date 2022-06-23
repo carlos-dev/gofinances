@@ -1,6 +1,4 @@
-import React, { FC, useState } from "react";
-import { Text, View } from "react-native";
-import { getBottomSpace } from "react-native-iphone-x-helper";
+import React from "react";
 
 import { HighlightCard } from "../../components/HighlightCard";
 import { TransactionCard, TransactionCardProps } from "../../components/TransactionCard";
