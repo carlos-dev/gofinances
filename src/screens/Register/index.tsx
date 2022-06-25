@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Button } from '../../components/Form/Button';
+import { CategorySelect } from '../../components/Form/CategorySelect';
 
 import { Input } from '../../components/Form/Input';
 import { TransactionTypeButton } from '../../components/Form/TransactionTypeButton';
@@ -28,6 +29,7 @@ export function Register() {
           <Input
             placeholder='Preço'
           />
+
           <TransactionsTypes>
             <TransactionTypeButton 
               type='up'
@@ -43,6 +45,8 @@ export function Register() {
               isActive={transactionType === 'down'}
             />
           </TransactionsTypes>
+
+          <CategorySelect title="Categoria" />
         </View>
 
         <Button title='Enviar' />
