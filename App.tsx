@@ -11,6 +11,7 @@ import {
 import { Dashboard } from './src/screens/Dashboard';
 import { Register } from './src/screens/Register';
 import theme from './src/global/styles/theme';
+import { CategorySelect } from './src/screens/CategorySelect';
 
 SplashScreen.preventAutoHideAsync()
   .then(result => console.log(`SplashScreen.preventAutoHideAsync() succeeded: ${result}`))
@@ -36,7 +37,8 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       {/* <Dashboard /> */}
-      <Register />
+      {/* <Register /> */}
+      <CategorySelect />
     </ThemeProvider>
   );
 }
