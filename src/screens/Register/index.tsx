@@ -7,6 +7,7 @@ import {
   Alert,
 } from "react-native";
 import { useForm } from "react-hook-form";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -22,7 +23,7 @@ const schema = Yup.object().shape({
   name: Yup.string().required("O nome é obrigatório"),
   amount: Yup.number()
     .typeError("informe um valor numérico")
-    .positive("o valor deve ser positivo")
+    .positive("o valor deve ser positivo"),
 });
 
 export function Register() {
@@ -33,7 +34,12 @@ export function Register() {
     name: "Categoria",
   });
 
-  const { control, handleSubmit, getValues, formState: { errors } } = useForm({
+  const {
+    control,
+    handleSubmit,
+    getValues,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -49,7 +55,7 @@ export function Register() {
     setCategoryModalOpen(false);
   }
 
-  function handleRegister() {
+  async function handleRegister() {
     if (!transactionType)
       return Alert.alert("Erro", "Selecione o tipo de transação");
 
@@ -57,6 +63,14 @@ export function Register() {
       return Alert.alert("Erro", "Selecione uma categoria");
 
     const data = getValues();
+
+    try {
+      const dataKey = "@gofinances:transactions";
+      await AsyncStorage.setItem(dataKey, JSON.stringify(data));
+    } catch (error) {
+      console.log("register", error);
+      Alert.alert("Erro", "Não foi possível salvar");
+    }
     console.log(data);
   }
 
