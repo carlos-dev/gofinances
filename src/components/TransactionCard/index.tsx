@@ -1,5 +1,5 @@
 import React from "react";
-import { createGlobalStyle } from "styled-components";
+import { categories } from "../../utils/categories";
 
 import {
   Container,
@@ -19,16 +19,20 @@ interface CategoryProps {
 
 export interface TransactionCardProps {
   type: 'positive' | 'negative';
-  title: string;
+  name: string;
   amount: string;
-  category: CategoryProps;
+  category: string;
   date: string;
 }
 
-export function TransactionCard({ title, amount, category, date, type }: TransactionCardProps) {
+export function TransactionCard({ name, amount, category, date, type }: TransactionCardProps) {
+  const categoryItem = categories.find(
+    item => item.key === category
+  );
+
   return (
     <Container>
-      <Title>{title}</Title>
+      <Title>{name}</Title>
 
       <Amount type={type}>
         { type === 'negative' && '- ' }
@@ -37,8 +41,8 @@ export function TransactionCard({ title, amount, category, date, type }: Transac
 
       <Footer>
         <Category>
-          <Icon name={category.icon} />
-          <CategoryName>{category.name}</CategoryName>
+          <Icon name={categoryItem?.icon} />
+          <CategoryName>{categoryItem?.name}</CategoryName>
         </Category>
 
         <Date>{date}</Date>

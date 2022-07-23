@@ -73,13 +73,6 @@ export const Transactions = styled.View`
   margin-top: ${RFPercentage(12)}px;
 `;
 
-export const TransacionList = styled(
-  FlatList as new () => FlatList<DataListProps>
-  ).attrs({
-  showsVerticalScrollIndicator: false,
-  contentContainerStyle: { paddingBottom: getBottomSpace() }
-})``;
-
 
 export const Title = styled.Text`
   font-size: ${RFValue(18)}px;
