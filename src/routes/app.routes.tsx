@@ -1,7 +1,7 @@
 import React from "react";
 import { Platform } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createBottomTabNavigator,} from "@react-navigation/bottom-tabs";
 import { MaterialIcons } from "@expo/vector-icons";
 
 import { Register } from "../screens/Register";
@@ -9,6 +9,12 @@ import { Dashboard } from "../screens/Dashboard";
 import theme from "../global/styles/theme";
 
 const { Navigator, Screen } = createBottomTabNavigator();
+
+export type RootStackParamList = {
+  Listagem: undefined;
+  Cadastrar: undefined;
+  Resumo: undefined;
+};
 
 export function AppRoutes() {
   return (

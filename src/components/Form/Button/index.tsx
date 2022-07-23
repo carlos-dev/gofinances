@@ -1,29 +1,19 @@
 import React from "react";
-import { StyleSheet, } from "react-native";
+import { StyleSheet, TouchableOpacity, } from "react-native";
 import { RectButton, RectButtonProps } from "react-native-gesture-handler";
 import theme from "../../../global/styles/theme";
 
-import { Title } from "./styles";
+import { Title, Container } from "./styles";
 
 interface ButtonProps extends RectButtonProps {
   title: string;
   onPress?: () => void;
 }
 
-export function Button({ title, onPress, ...rest }: ButtonProps) {
+export function Button({ title, ...rest }: ButtonProps) {
   return (
-    <RectButton onPress={onPress} style={styles.button} {...rest}>
+    <Container {...rest}>
       <Title>{title}</Title>
-    </RectButton>
+    </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  button: {
-    width: "100%",
-    backgroundColor: theme.colors.secondary,
-    borderRadius: 5,
-    padding: 18,
-    alignItems: "center",
-  },
-});
