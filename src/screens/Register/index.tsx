@@ -87,6 +87,7 @@ export function Register() {
         ...currentData,
         newTransaction
       ]
+      
       await AsyncStorage.setItem(dataKey, JSON.stringify(dataFomatted));
 
       reset();

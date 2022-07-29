@@ -60,7 +60,7 @@ export const Icon = styled(Feather)`
 export const HighlightCards = styled.ScrollView.attrs({
   horizontal: true,
   showsHorizontalScrollIndicator: false,
-  contentContainerStyle: { paddingHorizontal: 24 },
+  contentContainerStyle: { paddingHorizontal: 24, paddingTop: 14 },
 })`
   width: 100%;
   position: absolute;
@@ -73,9 +73,14 @@ export const Transactions = styled.View`
   margin-top: ${RFPercentage(12)}px;
 `;
 
-
 export const Title = styled.Text`
   font-size: ${RFValue(18)}px;
   font-family: ${({ theme }) => theme.fonts.regular};
   margin-bottom: 16px;
+`;
+
+export const LoadContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 `;
